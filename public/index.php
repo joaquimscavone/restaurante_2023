@@ -10,5 +10,5 @@ if(isset($_GET['pg'])){
     $pg = $_GET['pg'];
 }
 
-$pg = new View(VIEWS_PATH."/$pg.view.php",TEMPLATES_PATH.'/main.template.php');
+$pg = new View($pg,'main');
 $pg->show();

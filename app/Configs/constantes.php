@@ -8,3 +8,4 @@ defined('COMPOSER_URL') || define('COMPOSER_URL',APPLICATION_URL.'/vendor');
 defined('ADMINLTE_URL') || define('ADMINLTE_URL',COMPOSER_URL.'/almasaeed2010/adminlte');
 defined('TEMPLATES_PATH') || define('TEMPLATES_PATH',APP_PATH.'/Templates');
 defined('VIEWS_PATH') || define('VIEWS_PATH',APP_PATH.'/Views');
+defined('TEMPLATE_DEFAULT') || define('TEMPLATE_DEFAULT','main');
