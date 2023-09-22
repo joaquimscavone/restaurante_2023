@@ -1,6 +1,7 @@
 <?php 
 
 defined('APPLICATION_PATH') || define('APPLICATION_PATH',realpath(__DIR__.'/../..'));
+defined('APPLICATION_NAME') || define('APPLICATION_NAME','Polar');
 defined('APP_PATH') || define('APP_PATH', APPLICATION_PATH.'/app');
 defined('APPLICATION_URL') || define('APPLICATION_URL', 'http://localhost/projeto');
 defined('COMPOSER_PATH') || define('COMPOSER_PATH',APPLICATION_PATH.'/vendor');

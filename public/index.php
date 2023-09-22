@@ -11,4 +11,5 @@ if(isset($_GET['pg'])){
 }
 
 $pg = new View($pg,'main');
+$pg->setTemplate('title','Teste de variável');
 $pg->show();
