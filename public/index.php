@@ -1,15 +1,7 @@
 <?php
+use Core\Request;
+
 
 require_once '../app/application.php';
 
-
-use Core\View;
-
-$pg = 'pg1';
-if(isset($_GET['pg'])){
-    $pg = $_GET['pg'];
-}
-
-$pg = new View($pg,'main');
-$pg->setTemplate('title','Teste de variável');
-$pg->show();
+Request::getInstance()->getAction()->run();
