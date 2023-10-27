@@ -22,6 +22,10 @@ class Request{
     public function getAction(){
         return Action::getActionByUrl($this->url);
     }
+
+    public function all(){
+        return $_REQUEST;
+    }
 }
 
 

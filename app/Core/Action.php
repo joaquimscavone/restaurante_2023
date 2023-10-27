@@ -32,6 +32,12 @@ class Action{
     public static function getActionByUrl($url){
         $action = new Action();
         $action->router = Router::getRouterByUrl($url);
-        return $action;
+        return 
+        $action;
+    }
+
+    public function redirect(){
+        header('location:'.$this->router->getUrl());
+        die();
     }
 }

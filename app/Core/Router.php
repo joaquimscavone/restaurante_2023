@@ -80,4 +80,8 @@ class Router{
     public function getParameters(){
         return $this->parameters;
     }
+
+    public function getUrl(){
+        return APPLICATION_URL."/$this->url";
+    }
 }

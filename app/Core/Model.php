@@ -8,7 +8,7 @@ class Model
     protected $table;
     private $wheres = [];
     protected $columns;
-    protected $pk = '';//primary key
+    protected $pk = 'id';//primary key
     private $data = [];
 
     private $storage = false;
@@ -75,7 +75,16 @@ class Model
         $sql = "INSERT INTO $this->table (".implode(', ',$columns).") VALUES (
             :".implode(', :',$columns)."
         );";
-        return $this->query($sql,$data);
+        $this->query($sql,$data);
+        $this->storage = true;
+        $pk = $this->pk;
+        $this->data = $data;
+        $this->$pk = $this->getLastInsertId();
+        return $this->$pk;
+    }
+
+    public function getLastInsertId(){
+        return $this->getConnection()->lastInsertId($this->table);
     }
 
     public function save($data = []){

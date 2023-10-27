@@ -9,4 +9,10 @@ class Login extends Controller{
         $view = new View('usuarios\login','blank');
         $view->show();
     }
+
+    public function recuperarSneha(){
+        $view = new View('usuarios/redefinir_senha','blank');
+        $view->title = 'Redefinir Senha';
+        $view->show();
+    }
 }
