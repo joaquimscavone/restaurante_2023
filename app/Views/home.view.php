@@ -1,59 +1,37 @@
+<div class="row">
+  <?php foreach($mesas as $n_mesa => $mesa): ?>
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="text-center">Mesa
+            <?= $n_mesa ?>
+          </h5>
 
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+          <p class="card-text text-center">
+            <?php if(is_null($mesa)){
+              echo " <img src='".assets('images/mesas/livre.png')."' alt=''>";
+            }else{
+              echo " <img src='".assets('images/mesas/ocupada.png')."' alt=''>";
+            }
+            
+            ?>
+           
+          </p>
 
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
 
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div><!-- /.card -->
-          </div>
-          <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <!-- /.col-md-6 -->
         </div>
-        <!-- /.row -->
+        <div class="card-footer">
+        <a href="<?=url(\Controllers\Atendimento\Pedidos::class)?>" class="btn btn-primary"><i class="fas fa-list"></i></a>
+        <?php if(isset($mesa)):?>
+          <a href="#" class="btn btn-success"><i class="fas fa-coins"></i></a>
+          <a href="#" class="btn btn-warning"><i class="fas fa-receipt"></i></a>
+          <?php endif?>
+         
+         
+        </div>
+      </div>
+    </div>
+  <?php endforeach; ?>
+  <!-- /.col-md-6 -->
+</div>
+<!-- /.row -->

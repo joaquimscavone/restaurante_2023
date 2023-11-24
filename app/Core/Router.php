@@ -82,6 +82,7 @@ class Router{
     }
 
     public function getUrl(){
-        return APPLICATION_URL."/$this->url";
+       $url = $this->url;
+       return $url;
     }
 }

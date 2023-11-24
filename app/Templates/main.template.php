@@ -15,6 +15,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?=ADMINLTE_URL?>/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?=ADMINLTE_URL?>/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?=ADMINLTE_URL?>/plugins/toastr/toastr.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -287,5 +288,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="<?=ADMINLTE_URL?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?=ADMINLTE_URL?>/dist/js/adminlte.min.js"></script>
+<script src="<?=ADMINLTE_URL?>/plugins/toastr/toastr.min.js"></script>
+<script>
+  <?php showMessagens()?>
+</script>
 </body>
 </html>
