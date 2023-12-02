@@ -57,9 +57,9 @@ class Router{
                     continue;
                 }
                 $matchs = preg_match_all("(\{[a-z0-9_]{1,}\})",$router_url);
-                if($matchs==count($parameters)){
-                    foreach($parameters as $key => $value){
-                        $router->$key = $value;
+                if(count($router->parameters)==count($parameters)){
+                    foreach($router->parameters as &$param){
+                        $param = array_shift($parameters);
                     }
                     return $router;
                 }
@@ -83,6 +83,9 @@ class Router{
 
     public function getUrl(){
        $url = $this->url;
+       foreach($this->parameters as $var =>$param){
+        $url = str_replace("{{$var}}",urldecode($param),$url);
+       }
        return $url;
     }
 }

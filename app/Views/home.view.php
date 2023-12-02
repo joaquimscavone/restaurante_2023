@@ -21,7 +21,7 @@
 
         </div>
         <div class="card-footer">
-        <a href="<?=url(\Controllers\Atendimento\Pedidos::class)?>" class="btn btn-primary"><i class="fas fa-list"></i></a>
+        <a href="<?=url(\Controllers\Atendimento\Pedidos::class,'index',['mesa'=>$n_mesa])?>" class="btn btn-primary"><i class="fas fa-list"></i></a>
         <?php if(isset($mesa)):?>
           <a href="#" class="btn btn-success"><i class="fas fa-coins"></i></a>
           <a href="#" class="btn btn-warning"><i class="fas fa-receipt"></i></a>

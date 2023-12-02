@@ -25,14 +25,14 @@ if (!function_exists('createDBConfigs')) {
 if (!function_exists('assets')) {
     function assets($url)
     {
-        return APPLICATION_URL."/public/assets/$url";
+        return APPLICATION_URL."/assets/$url";
     }
 }
 if (!function_exists('url')) {
     function url($controller,$action = 'index',$parameters=[])
     {
         $router = Core\Router::getRouterByController($controller,$action,$parameters);
-        return APPLICATION_URL."/public/".$router->getUrl();
+        return APPLICATION_URL."/".$router->getUrl();
         
     }
 }
