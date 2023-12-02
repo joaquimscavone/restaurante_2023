@@ -21,7 +21,7 @@ class Atendimento extends Model{
     public function getPedidos(){
       if(!isset($this->pedidos)){
         $pedidos = new Pedido;
-        $this->pedidos = $pedidos->where('cod_atendimento','=',$this->id)->all();
+        $this->pedidos = $pedidos->where('atendimentos_id','=',$this->id)->all();
       }
       return $this->pedidos;
 

@@ -8,7 +8,8 @@ class Pedido extends Model{
     private $produto;
     protected $columns = [
         'id',
-        'produto_id',
+        'atendimentos_id',
+        'produtos_id',
         'quantidade',
         'valor_un',
         'situacao',
@@ -20,8 +21,8 @@ class Pedido extends Model{
     ];
 
     public function getProduto(){
-        if(isset($this->produto)){
-            $this->produto = new Produto($this->cod_produto);
+        if(!isset($this->produto)){
+            $this->produto = new Produto($this->produtos_id);
         }
         return $this->produto;
     }
