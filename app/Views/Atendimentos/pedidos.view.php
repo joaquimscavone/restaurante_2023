@@ -11,6 +11,25 @@
                         <?= date('h:i:s', strtotime($atendimento->criacao_data)) ?>
                     </span>
                 </div>
+                <div class="card-body">
+                    <table class="table text-sm">
+                        
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>
+                                    Valor Un
+                                </th>
+                                <th>
+                                    Qt
+                                </th>
+                                <th>
+                                    Total
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
