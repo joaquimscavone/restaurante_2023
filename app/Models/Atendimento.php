@@ -5,7 +5,7 @@ use Core\Model;
 
 class Atendimento extends Model{
     protected $table = 'atendimentos';
-
+    protected $pedidos;
     protected $columns = [
         'id',
         'pessoas_id',
@@ -17,4 +17,13 @@ class Atendimento extends Model{
         'alteracao_data',
         'exclusao_data'
     ];
+
+    public function getPedidos(){
+      if(!isset($this->pedidos)){
+        $pedidos = new Pedido;
+        $this->pedidos = $pedidos->where('cod_atendimento','=',$this->id)->all();
+      }
+      return $this->pedidos;
+
+    }
 }

@@ -34,9 +34,14 @@ class Model
         $stm = $this->select();
         $result = $stm->fetch(\PDO::FETCH_ASSOC);
         if($result){
+            $this->clear();
             $this->data = $result;
             $this->storage = true;
         }
+    }
+
+    protected function clear(){
+
     }
 
 
@@ -64,8 +69,12 @@ class Model
 
     public function get(){
        $reuslt =  $this->select();
-       $result =  $reuslt->fetch(\PDO::FETCH_CLASS, get_class(($this)));
-       $result->storage = true;
+       $result =  $reuslt->fetchObject(get_class(($this)));
+       if($result){
+            $result->storage = true;
+       }
+       
+      
        return $result;
 
     }
