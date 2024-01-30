@@ -5,7 +5,7 @@ namespace Core;
 class Request{
     private static $instance;
     private function __construct(){
-
+        Session::getInstance();
     }
 
     public static function getInstance(){

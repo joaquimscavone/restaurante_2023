@@ -3,6 +3,7 @@ use Core\Router;
 
 Router::add('',CONTROLLER_DEFAULT);
 Router::add('atendimento/mesa/{mesa}',Controllers\Atendimento\Pedidos::class);
+Router::add('atendimento/addpedido',Controllers\Atendimento\Pedidos::class,'addPedido');
 
 
 Router::add('/login',Controllers\Login::class);

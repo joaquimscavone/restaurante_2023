@@ -37,7 +37,7 @@ class Action{
     }
 
     public function redirect(){
-        header('location:'.$this->router->getUrl());
+        header('location:'.APPLICATION_URL."/".$this->router->getUrl());
         die();
     }
 }

@@ -5,7 +5,7 @@
                 <div class="card-header">
                     <h4 class="card-title">
                         Consumo da mesa
-                        <?= $atendimento->mesa ?>
+                        <?php echo $atendimento->mesa ?>
                     </h4>
                     <span class="text-sm d-block float-right text-right">
                         <?= date('h:i:s', strtotime($atendimento->criacao_data)) ?>
@@ -40,7 +40,10 @@
                                     Total
                                 </span>
                                 <br>
-                                <?= $pedido->valor_un * $pedido->quantidade; ?>
+                                <?php
+                                echo $pedido->valor_un * $pedido->quantidade;
+                                $total_geral += $pedido->valor_un * $pedido->quantidade;
+                                ?>
 
                             </div>
                         </div>
@@ -57,22 +60,24 @@
                         </div>
                         <div class="card-body">
                             <h1 class="card-title" style="font-size:3em;">
-                                R$ 0,00
+                                R$
+                                <?= $total_geral ?>
                             </h1>
                         </div>
                     </div>
                 </div>
                 <div class="col-6">
-                        <a href="<?=url(\Controllers\Home::class)?>" class="btn btn-lg btn-warning btn-fill w-100">
+                    <a href="<?= url(\Controllers\Home::class) ?>" class="btn btn-lg btn-warning btn-fill w-100">
                         <i class="fas fa-angle-left"></i>
                         Voltar</a>
-                        <a href="<?=url(\Controllers\Home::class)?>" class="btn btn-lg btn-success btn-fill w-100 mt-2">
+                    <a href="<?= url(\Controllers\Home::class) ?>" class="btn btn-lg btn-success btn-fill w-100 mt-2">
                         <i class="fas fa-cash-register fa-bounce"></i>
                         Pagamento</a>
-                      
+
                 </div>
                 <div class="col-12">
-                <div class="card">
+                    <div class="card">
+                        <form action="<?= url(\Controllers\Atendimento\Pedidos::class, 'addPedido') ?>" method="post">
                             <div class="card-header">
                                 <h3 class="card-title">
                                     Adicionar Pedido
@@ -83,24 +88,32 @@
                                     <div class="col-8">
                                         <div class="form-group">
                                             <label for="">Produto</label>
-                                            <select name="" id="" class="form-control" required>
-                                                <option value="" select disabled>Selecione um produto</option>
+                                            <select name="produtos_id" id="" class="form-control" required>
+                                                <option value="" disabled select>Selecione um produto</option>
+                                                <?php foreach ($produtos as $produto): ?>
+                                                    <option value="<?= $produto->id ?>">
+                                                        <?= $produto->nome . " -------- R$ " . $produto->valor_un ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
                                             <label for="">Quantidade</label>
-                                            <input type="number" class="form-control" step="0.1" min="0" value="1" id="">
+                                            <input type="number" class="form-control" name="quantidade" step="0.1" min="0" value="1"
+                                                id="">
                                         </div>
                                     </div>
+                                    <input type="hidden" name="atendimentos_id" value="<?=$atendimento->id?>">
+                                    <input type="hidden" name="mesa" value="<?=$atendimento->mesa?>">
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <button class="btn btn-warning" type="reset">Cancelar</button>
                                 <button class="btn btn-primary float-right" type="submit">Adicionar</button>
                             </div>
-                        </div>
+                        </form>
+                    </div>
                 </div>
             </div>
 
